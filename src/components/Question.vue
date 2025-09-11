@@ -1,22 +1,20 @@
+<script setup>
+    import { defineProps } from "vue"
+
+    const {question} = defineProps(['question']);
+</script>
+
 <template>
     <div class="question-container">
                 <h1>
-                    What is H2O?
+                    {{ question.text }}
                 </h1>
             </div>
-            <div class="options-container">
+            <div class="options-container" v-for="option in question.options">
                 <div class="option">
-                    <p class="option-label">A</p>
+                    <p class="option-label">{{ option.label }}</p>
                     <div class="option-value">
-                            <p>Fire</p>
-                    </div>
-                </div>
-            </div>
-            <div class="options-container">
-                <div class="option">
-                    <p class="option-label">B</p>
-                    <div class="option-value">
-                            <p>Water</p>
+                            <p>{{ option.text }}</p>
                     </div>
                 </div>
             </div>
